@@ -234,12 +234,6 @@ export default function Home() {
             </FadeUp>
           </div>
 
-          <FadeUp delay={0.2} className="hidden md:flex gap-6 justify-center items-end">
-            <div style={{ marginBottom: 36 }}>
-              <IPhoneMockup src="/screenshots/home.png" alt="BolusBrain home screen" label="Live glucose · Quick log" />
-            </div>
-            <IPhoneMockup src="/screenshots/carb-estimate.png" alt="AI carb estimation" label="AI carb estimation" />
-          </FadeUp>
         </div>
       </section>
 
