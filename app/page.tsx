@@ -91,8 +91,8 @@ function WaitlistForm() {
           />
         </div>
         <div>
-          <p className="text-xs text-zinc-600 mb-2">Which CGM do you use?</p>
-          <div className="flex gap-2 flex-wrap">
+          <p className="text-xs text-zinc-600 mb-2 text-center">Which CGM do you use?</p>
+          <div className="flex gap-2 flex-wrap justify-center">
             {CGM_OPTIONS.map(opt => (
               <button
                 key={opt}
