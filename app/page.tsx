@@ -25,8 +25,12 @@ function FadeUp({ children, delay = 0, className = '' }: { children: React.React
 }
 
 // ─── Email waitlist form ───────────────────────────────────────────────────────
+const CGM_OPTIONS = ['Libre', 'Dexcom', 'Other', 'None yet'] as const;
+
 function WaitlistForm() {
+  const [firstName, setFirstName] = useState('');
   const [email, setEmail] = useState('');
+  const [cgmType, setCgmType] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -40,7 +44,7 @@ function WaitlistForm() {
       const res = await fetch(LOOPS_FORM_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, firstName, cgmType }),
       });
       if (!res.ok && res.status !== 409) throw new Error('Failed');
       setSubmitted(true);
@@ -62,22 +66,54 @@ function WaitlistForm() {
 
   return (
     <div className="max-w-md w-full">
-      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
-        <input
-          type="email"
-          required
-          placeholder="your@email.com"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          className="flex-1 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none transition text-sm"
-          style={{ background: '#111', border: '1px solid #2a2a2a' }}
-          onFocus={e => (e.currentTarget.style.borderColor = '#00C853')}
-          onBlur={e => (e.currentTarget.style.borderColor = '#2a2a2a')}
-        />
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+        <div className="flex gap-3">
+          <input
+            type="text"
+            placeholder="First name"
+            value={firstName}
+            onChange={e => setFirstName(e.target.value)}
+            className="flex-1 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none transition text-sm"
+            style={{ background: '#111', border: '1px solid #2a2a2a' }}
+            onFocus={e => (e.currentTarget.style.borderColor = '#00C853')}
+            onBlur={e => (e.currentTarget.style.borderColor = '#2a2a2a')}
+          />
+          <input
+            type="email"
+            required
+            placeholder="your@email.com"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            className="flex-1 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none transition text-sm"
+            style={{ background: '#111', border: '1px solid #2a2a2a' }}
+            onFocus={e => (e.currentTarget.style.borderColor = '#00C853')}
+            onBlur={e => (e.currentTarget.style.borderColor = '#2a2a2a')}
+          />
+        </div>
+        <div>
+          <p className="text-xs text-zinc-600 mb-2">Which CGM do you use?</p>
+          <div className="flex gap-2 flex-wrap">
+            {CGM_OPTIONS.map(opt => (
+              <button
+                key={opt}
+                type="button"
+                onClick={() => setCgmType(cgmType === opt ? '' : opt)}
+                className="text-xs px-3 py-1.5 rounded-lg transition font-medium"
+                style={{
+                  background: cgmType === opt ? 'rgba(0,200,83,0.15)' : '#111',
+                  border: cgmType === opt ? '1px solid rgba(0,200,83,0.5)' : '1px solid #2a2a2a',
+                  color: cgmType === opt ? '#00C853' : '#666',
+                }}
+              >
+                {opt}
+              </button>
+            ))}
+          </div>
+        </div>
         <button
           type="submit"
           disabled={loading}
-          className="font-bold px-6 py-3 rounded-xl transition text-sm whitespace-nowrap disabled:opacity-50"
+          className="font-bold px-6 py-3 rounded-xl transition text-sm disabled:opacity-50"
           style={{ background: '#00C853', color: '#000' }}
         >
           {loading ? 'Joining…' : 'Join waitlist'}
