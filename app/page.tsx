@@ -162,7 +162,7 @@ function IPhoneMockup({ src, alt, label }: { src: string; alt: string; label: st
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const steps = [
-  { n: '01', title: 'Snap a photo of your meal', desc: 'BolusBrain estimates carbs from the photo using UK CoFID food standards — no manual entry needed.' },
+  { n: '01', title: 'Snap a photo of your meal or add a note', desc: 'BolusBrain estimates carbs from the photo using UK CoFID food standards — no manual entry needed.' },
   { n: '02', title: 'Log your insulin dose', desc: 'Record your bolus alongside the meal. Takes three seconds, one-handed.' },
   { n: '03', title: 'See exactly what happened', desc: 'A 3-hour glucose curve shows precisely how your body responded to that meal and dose.' },
 ];
