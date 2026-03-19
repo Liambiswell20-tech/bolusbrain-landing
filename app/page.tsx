@@ -209,32 +209,27 @@ export default function Home() {
       </nav>
 
       {/* ── Hero ── */}
-      <section className="max-w-6xl mx-auto px-6 pt-20 pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <FadeUp>
-              <div className="inline-block text-xs font-semibold px-3 py-1.5 rounded-full mb-6 tracking-widest uppercase"
-                style={{ background: 'rgba(0,200,83,0.08)', color: '#00C853', border: '1px solid rgba(0,200,83,0.18)' }}>
-                Now in beta · FreeStyle Libre
-              </div>
-            </FadeUp>
-            <FadeUp delay={0.05}>
-              <h1 className="text-5xl md:text-6xl font-extrabold leading-[1.08] tracking-tight mb-5">
-                The T1D app that{' '}
-                <span style={{ color: '#00C853' }}>learns&nbsp;you.</span>
-              </h1>
-            </FadeUp>
-            <FadeUp delay={0.1}>
-              <p className="text-base text-zinc-400 leading-relaxed mb-8 max-w-md">
-                Snap a photo. Log your dose. See your glucose response — every meal, every time. Built by a Type 1 diabetic, for Type 1 diabetics.
-              </p>
-            </FadeUp>
-            <FadeUp delay={0.15}>
-              <WaitlistForm />
-            </FadeUp>
+      <section className="max-w-3xl mx-auto px-6 pt-20 pb-16 text-center">
+        <FadeUp>
+          <div className="inline-block text-xs font-semibold px-3 py-1.5 rounded-full mb-6 tracking-widest uppercase"
+            style={{ background: 'rgba(0,200,83,0.08)', color: '#00C853', border: '1px solid rgba(0,200,83,0.18)' }}>
+            Now in beta · FreeStyle Libre
           </div>
-
-        </div>
+        </FadeUp>
+        <FadeUp delay={0.05}>
+          <h1 className="text-5xl md:text-6xl font-extrabold leading-[1.08] tracking-tight mb-5">
+            The T1D app that{' '}
+            <span style={{ color: '#00C853' }}>learns&nbsp;you.</span>
+          </h1>
+        </FadeUp>
+        <FadeUp delay={0.1}>
+          <p className="text-base text-zinc-400 leading-relaxed mb-8 max-w-md mx-auto">
+            Snap a photo. Log your dose. See your glucose response — every meal, every time. Built by a Type 1 diabetic, for Type 1 diabetics.
+          </p>
+        </FadeUp>
+        <FadeUp delay={0.15} className="flex justify-center">
+          <WaitlistForm />
+        </FadeUp>
       </section>
 
       {/* ── How it works ── */}
