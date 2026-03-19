@@ -67,7 +67,7 @@ function WaitlistForm() {
   return (
     <div className="max-w-md w-full">
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-        <div className="flex gap-3">
+        <div className="flex flex-col sm:flex-row gap-3">
           <input
             type="text"
             placeholder="First name"
@@ -234,7 +234,7 @@ export default function Home() {
             </FadeUp>
           </div>
 
-          <FadeUp delay={0.2} className="hidden lg:flex gap-6 justify-center items-end">
+          <FadeUp delay={0.2} className="hidden md:flex gap-6 justify-center items-end">
             <div style={{ marginBottom: 36 }}>
               <IPhoneMockup src="/screenshots/home.png" alt="BolusBrain home screen" label="Live glucose · Quick log" />
             </div>
