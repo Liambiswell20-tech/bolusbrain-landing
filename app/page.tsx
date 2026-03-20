@@ -97,8 +97,8 @@ function WaitlistForm() {
             placeholder="First name"
             value={firstName}
             onChange={e => setFirstName(e.target.value)}
-            className="flex-1 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none transition text-sm"
-            style={{ background: '#111', border: '1px solid #2a2a2a' }}
+            className="flex-1 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none transition text-sm font-medium"
+            style={{ background: '#1a1a1a', border: '1px solid #333' }}
             onFocus={e => (e.currentTarget.style.borderColor = '#00C853')}
             onBlur={e => (e.currentTarget.style.borderColor = '#2a2a2a')}
           />
@@ -108,8 +108,8 @@ function WaitlistForm() {
             placeholder="your@email.com"
             value={email}
             onChange={e => setEmail(e.target.value)}
-            className="flex-1 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none transition text-sm"
-            style={{ background: '#111', border: '1px solid #2a2a2a' }}
+            className="flex-1 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none transition text-sm font-medium"
+            style={{ background: '#1a1a1a', border: '1px solid #333' }}
             onFocus={e => (e.currentTarget.style.borderColor = '#00C853')}
             onBlur={e => (e.currentTarget.style.borderColor = '#2a2a2a')}
           />
