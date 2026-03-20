@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
       transactionalId,
       email,
       dataVariables: {
-        firstName: firstName || '',
+        firstName: firstName || 'there',
         joinDate,
         unsubscribeUrl: `https://bolusbrain.app/unsubscribe?email=${encodeURIComponent(email)}`,
       },
