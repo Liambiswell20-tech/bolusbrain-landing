@@ -54,6 +54,12 @@ function WaitlistForm() {
         console.error('[Loops] HTTP', res.status, res.statusText, body);
         throw new Error(`HTTP ${res.status}: ${body}`);
       }
+      // Fire transactional confirmation email (non-blocking — don't fail the signup if this errors)
+      fetch('/api/send-welcome', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, firstName }),
+      }).catch(err => console.error('[Loops] send-welcome error:', err));
       setSubmitted(true);
     } catch (err) {
       console.error('[Loops] form submission error:', err);
