@@ -41,14 +41,22 @@ function WaitlistForm() {
     setLoading(true);
     setError('');
     try {
+      const params = new URLSearchParams({ email });
+      if (firstName) params.set('firstName', firstName);
+      if (cgmType) params.set('cgmType', cgmType);
       const res = await fetch(LOOPS_FORM_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, firstName, cgmType }),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString(),
       });
-      if (!res.ok && res.status !== 409) throw new Error('Failed');
+      if (!res.ok && res.status !== 409) {
+        const body = await res.text().catch(() => '(no body)');
+        console.error('[Loops] HTTP', res.status, res.statusText, body);
+        throw new Error(`HTTP ${res.status}: ${body}`);
+      }
       setSubmitted(true);
-    } catch {
+    } catch (err) {
+      console.error('[Loops] form submission error:', err);
       setError('Something went wrong. Try again.');
     } finally {
       setLoading(false);
