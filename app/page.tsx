@@ -55,11 +55,21 @@ function WaitlistForm() {
         throw new Error(`HTTP ${res.status}: ${body}`);
       }
       // Fire transactional confirmation email (non-blocking — don't fail the signup if this errors)
+      console.log('[Loops] firing send-welcome for', email);
       fetch('/api/send-welcome', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, firstName }),
-      }).catch(err => console.error('[Loops] send-welcome error:', err));
+        body: JSON.stringify({ email, firstName: firstName || '' }),
+      })
+        .then(async r => {
+          const body = await r.json().catch(() => ({}));
+          if (r.ok) {
+            console.log('[Loops] send-welcome success', body);
+          } else {
+            console.error('[Loops] send-welcome failed', r.status, body);
+          }
+        })
+        .catch(err => console.error('[Loops] send-welcome network error:', err));
       setSubmitted(true);
     } catch (err) {
       console.error('[Loops] form submission error:', err);

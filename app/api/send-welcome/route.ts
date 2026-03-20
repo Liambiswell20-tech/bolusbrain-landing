@@ -3,12 +3,17 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function POST(req: NextRequest) {
   const { email, firstName } = await req.json();
 
+  console.log('[send-welcome] called — email:', email, 'firstName:', firstName ?? '(none)');
+
   if (!email) {
+    console.error('[send-welcome] missing email');
     return NextResponse.json({ error: 'email required' }, { status: 400 });
   }
 
   const apiKey = process.env.LOOPS_API_KEY;
   const transactionalId = process.env.LOOPS_WAITLIST_TRANSACTIONAL_ID;
+
+  console.log('[send-welcome] env check — apiKey:', apiKey ? 'present' : 'MISSING', 'transactionalId:', transactionalId ? 'present' : 'MISSING');
 
   if (!apiKey || !transactionalId) {
     console.error('[Loops] Missing LOOPS_API_KEY or LOOPS_WAITLIST_TRANSACTIONAL_ID');
@@ -45,5 +50,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'failed to send email', detail: body }, { status: 502 });
   }
 
+  console.log('[send-welcome] transactional email sent successfully to', email);
   return NextResponse.json({ success: true });
 }
