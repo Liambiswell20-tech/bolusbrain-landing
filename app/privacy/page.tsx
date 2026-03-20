@@ -74,7 +74,7 @@ export default function PrivacyPage() {
           <p>For data protection purposes, Liam Biswell is the Data Controller for all personal data processed through this application.</p>
           <p className="mt-3"><span className="text-white font-medium">Contact Details</span></p>
           <p>For all privacy and data protection enquiries:</p>
-          <p><a href="mailto:liam.biswell20@hotmail.co.uk" className="underline hover:text-white transition">liam.biswell20@hotmail.co.uk</a></p>
+          <p><a href="mailto:support@bolusbrain.app" className="underline hover:text-white transition">support@bolusbrain.app</a></p>
           <p>19 Leopold Road, Leighton Buzzard, Bedfordshire, LU7 2QU</p>
         </Section>
 
@@ -241,7 +241,7 @@ export default function PrivacyPage() {
         <Section title="15. Contact Us">
           <p className="text-white font-medium">Data Controller Contact</p>
           <p>Liam Biswell</p>
-          <p>Email: <a href="mailto:liam.biswell20@hotmail.co.uk" className="underline hover:text-white transition">liam.biswell20@hotmail.co.uk</a></p>
+          <p>Email: <a href="mailto:support@bolusbrain.app" className="underline hover:text-white transition">support@bolusbrain.app</a></p>
           <p>19 Leopold Road, Leighton Buzzard, Bedfordshire, LU7 2QU</p>
           <p>Response time: We aim to respond to all data requests within 30 days.</p>
         </Section>
