@@ -73,7 +73,7 @@ function WaitlistForm() {
     return (
       <div className="rounded-2xl p-5 max-w-md" style={{ background: 'rgba(0,200,83,0.08)', border: '1px solid rgba(0,200,83,0.25)' }}>
         <p className="font-semibold text-lg" style={{ color: '#00C853' }}>You&apos;re on the list</p>
-        <p className="text-sm mt-1 text-zinc-400">We&apos;ll be in touch when BolusBrain is ready.</p>
+        <p className="text-sm mt-2 text-zinc-400">A confirmation email is on its way — check your junk folder if you don&apos;t see it. Mark us as safe to make sure you get updates going forward.</p>
       </div>
     );
   }
