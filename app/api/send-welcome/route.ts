@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
       dataVariables: {
         firstName: firstName || '',
         joinDate,
-        unsubscribeUrl: '',
+        unsubscribeUrl: 'https://bolusbrain.app',
       },
     }),
   });
