@@ -97,10 +97,10 @@ function WaitlistForm() {
             placeholder="First name"
             value={firstName}
             onChange={e => setFirstName(e.target.value)}
-            className="flex-1 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none transition text-sm font-medium"
-            style={{ background: '#1a1a1a', border: '1px solid #333' }}
+            className="flex-1 rounded-xl px-4 py-3 placeholder-zinc-500 focus:outline-none transition text-sm font-semibold"
+            style={{ background: '#2a2a2a', border: '1px solid #444', color: '#fff' }}
             onFocus={e => (e.currentTarget.style.borderColor = '#00C853')}
-            onBlur={e => (e.currentTarget.style.borderColor = '#2a2a2a')}
+            onBlur={e => (e.currentTarget.style.borderColor = '#444')}
           />
           <input
             type="email"
@@ -108,10 +108,10 @@ function WaitlistForm() {
             placeholder="your@email.com"
             value={email}
             onChange={e => setEmail(e.target.value)}
-            className="flex-1 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none transition text-sm font-medium"
-            style={{ background: '#1a1a1a', border: '1px solid #333' }}
+            className="flex-1 rounded-xl px-4 py-3 placeholder-zinc-500 focus:outline-none transition text-sm font-semibold"
+            style={{ background: '#2a2a2a', border: '1px solid #444', color: '#fff' }}
             onFocus={e => (e.currentTarget.style.borderColor = '#00C853')}
-            onBlur={e => (e.currentTarget.style.borderColor = '#2a2a2a')}
+            onBlur={e => (e.currentTarget.style.borderColor = '#444')}
           />
         </div>
         <div>
