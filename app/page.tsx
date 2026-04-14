@@ -361,6 +361,28 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Beta CTA ── */}
+      <section className="border-t py-24 px-6" style={{ borderColor: '#1a1a1a', background: '#111' }}>
+        <div className="max-w-xl mx-auto text-center">
+          <p className="text-xs font-semibold tracking-widest uppercase mb-3" style={{ color: '#00C853' }}>Early access</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-4 leading-tight">
+            Help shape Bolus Brain
+          </h2>
+          <p className="text-zinc-400 mb-10 text-sm leading-relaxed max-w-md mx-auto">
+            We&apos;re looking for 5–10 Type 1 diabetics to test the app for 4 weeks. Early access, direct input, and free Pro when we launch.
+          </p>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfdWuiV6T_yfaoOm49TiP7l2HwZndKDHpAszJdC7AZoRU1koQ/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block font-bold px-8 py-4 rounded-xl transition text-sm"
+            style={{ background: '#00C853', color: '#000' }}
+          >
+            Apply for Early Access
+          </a>
+        </div>
+      </section>
+
       {/* ── Final CTA ── */}
       <section id="waitlist" className="border-t py-24 px-6" style={{ borderColor: '#1a1a1a', background: '#0d0d0d' }}>
         <div className="max-w-xl mx-auto text-center">
