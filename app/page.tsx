@@ -222,13 +222,22 @@ export default function Home() {
             <span className="text-white font-extrabold text-2xl tracking-tight">Bolus Brain</span>
             <span className="text-zinc-500 text-sm">Your glucose memory</span>
           </div>
-          <a
-            href="#waitlist"
-            className="text-sm font-bold px-5 py-2.5 rounded-full transition"
-            style={{ background: '#00C853', color: '#000' }}
-          >
-            Join waitlist
-          </a>
+          <div className="flex items-center gap-3">
+            <a
+              href="#early-access"
+              className="text-sm font-semibold px-4 py-2 rounded-full transition"
+              style={{ border: '1px solid #00C853', color: '#00C853' }}
+            >
+              Early access
+            </a>
+            <a
+              href="#waitlist"
+              className="text-sm font-bold px-5 py-2.5 rounded-full transition"
+              style={{ background: '#00C853', color: '#000' }}
+            >
+              Join waitlist
+            </a>
+          </div>
         </div>
       </nav>
 
@@ -362,7 +371,7 @@ export default function Home() {
       </section>
 
       {/* ── Beta CTA ── */}
-      <section className="border-t py-24 px-6" style={{ borderColor: '#1a1a1a', background: '#111' }}>
+      <section id="early-access" className="border-t py-24 px-6" style={{ borderColor: '#1a1a1a', background: '#111' }}>
         <div className="max-w-xl mx-auto text-center">
           <p className="text-xs font-semibold tracking-widest uppercase mb-3" style={{ color: '#00C853' }}>Early access</p>
           <h2 className="text-3xl md:text-4xl font-extrabold mb-4 leading-tight">
