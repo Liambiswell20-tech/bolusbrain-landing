@@ -109,7 +109,12 @@ export async function POST(req: NextRequest) {
 - Do NOT use USDA figures.
 - Report one combined carbohydrate total only. Do NOT break down into sugars separately — sugars are already included within the carbohydrate figure and must not be listed or added on top.
 
-Give a single number or short range (e.g. "45g" or "40-50g") on the first line, then one sentence explaining your reasoning including the estimated portion weight. If no food is visible, say so briefly.`,
+Reply in exactly this format:
+Line 1: carb estimate as a single number or short range (e.g. "45g" or "40-50g")
+Line 2: a short meal name describing the food (e.g. "Chicken rice and vegetables", "Toast with peanut butter") — lowercase, no quantities, no brands
+Line 3: one sentence explaining your reasoning including the estimated portion weight
+
+If no food is visible, say so briefly on a single line.`,
             },
           ],
         },
