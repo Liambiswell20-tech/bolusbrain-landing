@@ -60,7 +60,7 @@ export default function PrivacyPage() {
         <div className="mb-12">
           <p className="text-xs font-semibold tracking-widest uppercase mb-3" style={{ color: '#00C853' }}>Legal</p>
           <h1 className="text-4xl font-extrabold mb-3 tracking-tight">Privacy Policy</h1>
-          <p className="text-zinc-500 text-sm">Version 1.0 &nbsp;|&nbsp; Effective Date: 20 March 2026</p>
+          <p className="text-zinc-500 text-sm">Version 1.1 &nbsp;|&nbsp; Effective Date: 28 April 2026</p>
           <p className="text-zinc-500 text-sm">Applies to: Bolus Brain mobile application (iOS and Android)</p>
 
           <div className="mt-6 rounded-xl px-5 py-4 text-sm leading-relaxed" style={{ background: 'rgba(0,200,83,0.06)', border: '1px solid rgba(0,200,83,0.2)', color: '#ccc' }}>
@@ -88,16 +88,20 @@ export default function PrivacyPage() {
           <p className="text-white font-medium">3.1 Special Category Health Data (Highest Protection)</p>
           <p>The following data is classified as special category data under Article 9 of the UK GDPR and receives the highest level of legal protection:</p>
           <ul className="list-disc list-inside space-y-1 ml-2">
-            <li>Glucose readings (mmol/L) drawn from your connected Nightscout/CGM integration</li>
+            <li>Glucose readings (mmol/L) drawn from your connected CGM integration (e.g. LibreLinkUp, Nightscout)</li>
             <li>Insulin doses you log manually within the app</li>
             <li>Meal names, descriptions, and photographs you upload</li>
+            <li>AI-assisted carb estimates generated from your meal photographs (see Section 8.1)</li>
             <li>Glucose response curves (start glucose, peak glucose, time to peak, total rise) automatically calculated after meals</li>
             <li>Context flags you choose to log (Exercise, Illness, Stress)</li>
             <li>Snack logs and quick-log entries</li>
+            <li>Equipment profiles (insulin brand, delivery method, CGM type)</li>
+            <li>Hypo treatment records</li>
           </ul>
           <p className="text-white font-medium mt-4">3.2 Account and Technical Data</p>
           <ul className="list-disc list-inside space-y-1 ml-2">
             <li>Email address and password hash (for account creation and authentication)</li>
+            <li>Demographic information you provide during onboarding (age range, gender, T1D duration, latest HbA1c) — all optional</li>
             <li>Device type, operating system version, and app version (for technical support and crash diagnostics)</li>
             <li>Timestamps of app activity (for data accuracy and pattern calculations)</li>
           </ul>
@@ -118,6 +122,7 @@ export default function PrivacyPage() {
             rows={[
               ['Storing your glucose readings, insulin doses, and meal logs so the app can function', 'Article 6(1)(b) — Performance of a contract with you; Article 9(2)(a) — Your explicit consent'],
               ['Calculating glucose response curves and displaying meal pattern history', 'Article 6(1)(b) — Performance of a contract; Article 9(2)(a) — Explicit consent'],
+              ['Sending meal photographs to Anthropic\u2019s AI service for carb estimation (opt-in, with separate in-app consent)', 'Article 6(1)(a) — Consent; Article 9(2)(a) — Explicit consent'],
               ['Sending in-app notifications (e.g. policy updates)', 'Article 6(1)(f) — Legitimate interests'],
               ['Diagnosing technical errors and crashes', 'Article 6(1)(f) — Legitimate interests; no special category data accessed'],
               ['Anonymised aggregate analytics for app improvement (future, opt-in)', 'Article 6(1)(a) — Consent; Article 9(2)(a) — Explicit consent'],
@@ -132,9 +137,9 @@ export default function PrivacyPage() {
           <Table
             headers={['Data Type', 'Retention Period']}
             rows={[
-              ['Glucose readings and insulin logs', '3 years from the date of logging, then automatically deleted'],
-              ['Meal photographs', '3 years from the date of logging, then automatically deleted'],
-              ['Glucose response curves and pattern data', '3 years from the date of logging, then automatically deleted'],
+              ['Glucose readings and insulin logs', '3 years from the date of logging, then deleted on request or upon automated retention enforcement'],
+              ['Meal photographs', '3 years from the date of logging, then deleted on request or upon automated retention enforcement'],
+              ['Glucose response curves and pattern data', '3 years from the date of logging, then deleted on request or upon automated retention enforcement'],
               ['Account credentials (email / password hash)', 'Until account deletion, or 12 months of inactivity, whichever comes first'],
               ['Technical/crash logs', '90 days, then automatically purged'],
             ]}
@@ -146,9 +151,9 @@ export default function PrivacyPage() {
         <Section title="6. Data Storage and Security">
           <p className="text-white font-medium">6.1 Where Your Data is Stored</p>
           <ul className="list-disc list-inside space-y-1 ml-2">
-            <li>App data (meals, insulin, glucose curves) is stored in a PostgreSQL database hosted on a UK/EEA-compliant cloud provider</li>
-            <li>Meal photographs are stored using a secure image hosting service (Cloudinary or Amazon S3, both with UK/EEA data residency options)</li>
-            <li>Your CGM glucose data is fetched from your personal Nightscout instance — we do not store your Nightscout credentials</li>
+            <li>App data (meals, insulin, glucose curves) is stored in a PostgreSQL database hosted by Supabase in London, UK (eu-west-2)</li>
+            <li>Meal photographs are stored locally on your device. When you use the AI carb estimation feature, photographs are sent to Anthropic&apos;s API for processing and are not retained by Anthropic after the response is generated</li>
+            <li>Your CGM glucose data is fetched from your connected CGM service (e.g. LibreLinkUp, Nightscout) — we do not store your CGM credentials on our servers</li>
           </ul>
           <p className="text-white font-medium mt-4">6.2 Security Measures</p>
           <ul className="list-disc list-inside space-y-1 ml-2">
@@ -187,12 +192,12 @@ export default function PrivacyPage() {
         <Section title="8. Sharing Your Data">
           <p>We do not sell, rent, or trade your personal data. We share data only in the following limited circumstances:</p>
           <p className="text-white font-medium mt-2">8.1 Service Providers (Data Processors)</p>
-          <p>We use the following third-party processors who act on our instructions under Data Processing Agreements:</p>
+          <p>We use the following third-party processors who act on our instructions:</p>
           <ul className="list-disc list-inside space-y-1 ml-2">
-            <li>Cloud database host — for storing app data (UK/EEA based)</li>
-            <li>Image storage provider (Cloudinary or Amazon S3) — for meal photographs</li>
+            <li><span className="text-white font-medium">Supabase</span> (London, UK) — cloud database hosting for app data. Subject to Supabase&apos;s Data Processing Agreement.</li>
+            <li><span className="text-white font-medium">Anthropic</span> (San Francisco, USA) — AI-powered carb estimation from meal photographs. Photos are sent via encrypted HTTPS, processed ephemerally (not stored by Anthropic after the response), and are only sent when you explicitly use the &quot;Estimate carbs&quot; feature after granting separate in-app consent. You can revoke this consent at any time in Settings. Anthropic&apos;s API terms prohibit them from using your data to train their models.</li>
           </ul>
-          <p>All processors are contractually required to implement appropriate security measures and may not use your data for their own purposes.</p>
+          <p>All processors are required to implement appropriate security measures and may not use your data for their own purposes.</p>
           <p className="text-white font-medium mt-4">8.2 Legal Obligations</p>
           <p>We may disclose data if required to do so by law, court order, or regulatory authority. We will notify you where legally permitted to do so.</p>
           <p className="text-white font-medium mt-4">8.3 Future: Anonymous Research Partnerships</p>
@@ -200,8 +205,10 @@ export default function PrivacyPage() {
         </Section>
 
         <Section title="9. International Data Transfers">
-          <p>We aim to keep your data within the UK and EEA. If any of our processors operate outside the UK/EEA, we will ensure that appropriate safeguards are in place (such as UK adequacy decisions or Standard Contractual Clauses) as required by UK GDPR Chapter V.</p>
-          <p>Your Nightscout data is fetched from your own Nightscout instance. We do not control where your Nightscout instance is hosted.</p>
+          <p>Your core app data (meals, insulin, glucose curves, account information) is stored in the UK by Supabase (London, eu-west-2).</p>
+          <p>When you use the AI carb estimation feature, meal photographs are sent to Anthropic&apos;s servers in the United States for processing. This transfer is covered by your explicit, opt-in consent (UK GDPR Article 49(1)(a)). Photos are processed ephemerally and not retained by Anthropic.</p>
+          <p>If any of our processors operate outside the UK/EEA, we will ensure that appropriate safeguards are in place (such as UK adequacy decisions or Standard Contractual Clauses) as required by UK GDPR Chapter V.</p>
+          <p>Your CGM glucose data is fetched from your connected CGM service. We do not control where your CGM provider hosts their infrastructure.</p>
         </Section>
 
         <Section title="10. Children">
