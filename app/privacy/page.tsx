@@ -60,7 +60,7 @@ export default function PrivacyPage() {
         <div className="mb-12">
           <p className="text-xs font-semibold tracking-widest uppercase mb-3" style={{ color: '#00C853' }}>Legal</p>
           <h1 className="text-4xl font-extrabold mb-3 tracking-tight">Privacy Policy</h1>
-          <p className="text-zinc-500 text-sm">Version 1.1 &nbsp;|&nbsp; Effective Date: 28 April 2026</p>
+          <p className="text-zinc-500 text-sm">Version 1.2 &nbsp;|&nbsp; Effective Date: 6 May 2026</p>
           <p className="text-zinc-500 text-sm">Applies to: Bolus Brain mobile application (iOS and Android)</p>
 
           <div className="mt-6 rounded-xl px-5 py-4 text-sm leading-relaxed" style={{ background: 'rgba(0,200,83,0.06)', border: '1px solid rgba(0,200,83,0.2)', color: '#ccc' }}>
@@ -97,6 +97,8 @@ export default function PrivacyPage() {
             <li>Snack logs and quick-log entries</li>
             <li>Equipment profiles (insulin brand, delivery method, CGM type)</li>
             <li>Hypo treatment records</li>
+            <li>Time in Range (TIR) calculations derived from your CGM glucose data</li>
+            <li>Session grouping and meal pattern classifications (e.g. grouping meals into dining sessions and categorising glucose responses)</li>
           </ul>
           <p className="text-white font-medium mt-4">3.2 Account and Technical Data</p>
           <ul className="list-disc list-inside space-y-1 ml-2">
@@ -105,13 +107,14 @@ export default function PrivacyPage() {
             <li>Device type, operating system version, and app version (for technical support and crash diagnostics)</li>
             <li>Timestamps of app activity (for data accuracy and pattern calculations)</li>
           </ul>
-          <p className="text-white font-medium mt-4">3.3 Data We Do NOT Collect</p>
+          <p className="text-white font-medium mt-4">3.3 Data We Do NOT Collect or Sell</p>
           <ul className="list-disc list-inside space-y-1 ml-2">
             <li>We do not collect your name</li>
             <li>We do not collect location data</li>
             <li>We do not use advertising trackers or analytics SDKs that profile you</li>
-            <li>We do not sell your data to third parties</li>
-            <li>We do not share your data with pharmaceutical companies, insurers, or employers</li>
+            <li>We never sell, rent, or trade your identifiable personal data to any third party</li>
+            <li>We never share your identifiable health data with insurers or employers</li>
+            <li>If you opt in to anonymised data sharing (see Section 8.3), fully anonymised and aggregated data may be shared with research partners — but your identity is never attached and you can opt out at any time</li>
           </ul>
         </Section>
 
@@ -125,7 +128,7 @@ export default function PrivacyPage() {
               ['Sending meal photographs to Anthropic\u2019s AI service for carb estimation (opt-in, with separate in-app consent)', 'Article 6(1)(a) — Consent; Article 9(2)(a) — Explicit consent'],
               ['Sending in-app notifications (e.g. policy updates)', 'Article 6(1)(f) — Legitimate interests'],
               ['Diagnosing technical errors and crashes', 'Article 6(1)(f) — Legitimate interests; no special category data accessed'],
-              ['Anonymised aggregate analytics for app improvement (future, opt-in)', 'Article 6(1)(a) — Consent; Article 9(2)(a) — Explicit consent'],
+              ['Anonymised aggregate data sharing with research partners (opt-in via in-app toggle — see Section 8.3)', 'Article 6(1)(a) — Consent; Article 9(2)(a) — Explicit consent'],
             ]}
           />
           <p className="text-white font-medium mt-2">Your Explicit Consent</p>
@@ -200,8 +203,15 @@ export default function PrivacyPage() {
           <p>All processors are required to implement appropriate security measures and may not use your data for their own purposes.</p>
           <p className="text-white font-medium mt-4">8.2 Legal Obligations</p>
           <p>We may disclose data if required to do so by law, court order, or regulatory authority. We will notify you where legally permitted to do so.</p>
-          <p className="text-white font-medium mt-4">8.3 Future: Anonymous Research Partnerships</p>
-          <p>We will NEVER sell or share identifiable health data. If we introduce any anonymised data partnerships in future (e.g. aggregate research), we will notify you in advance, obtain separate explicit consent, and provide a straightforward way to opt out before this begins.</p>
+          <p className="text-white font-medium mt-4">8.3 Anonymised Data Sharing (Opt-In)</p>
+          <p>We will <span className="text-white font-medium">NEVER</span> sell or share your identifiable health data. However, if you choose to opt in, we may share fully anonymised and aggregated data with selected research partners to help advance Type 1 diabetes care. Here is exactly how this works:</p>
+          <ul className="list-disc list-inside space-y-1 ml-2 mt-2">
+            <li><span className="text-white font-medium">What is shared:</span> aggregated, population-level statistics only — such as average glucose responses to common meal types, carb-to-insulin ratios across demographics, and glycemic variability trends. No individual meal logs, glucose traces, or personal records are ever shared.</li>
+            <li><span className="text-white font-medium">How it is anonymised:</span> data is stripped of all identifiers (email, device ID, timestamps), aggregated across many users, and subjected to statistical thresholds so that no individual can be re-identified.</li>
+            <li><span className="text-white font-medium">Who may receive it:</span> academic and NHS research institutions (e.g. NIHR, Diabetes UK-funded studies) and insulin manufacturers (e.g. Novo Nordisk, Eli Lilly, Sanofi) conducting research to improve insulin therapies and diabetes outcomes.</li>
+            <li><span className="text-white font-medium">How you control it:</span> the app includes a dedicated Data Sharing toggle in Settings. This is <span className="text-white font-medium">off by default</span>. You are introduced to this choice during onboarding, but you can change it at any time. Opting out takes effect immediately — your data will no longer be included in future anonymised datasets.</li>
+            <li><span className="text-white font-medium">What is NOT shared:</span> we will never share anonymised data with insurance companies, employers, or any party whose use could disadvantage individuals with diabetes.</li>
+          </ul>
         </Section>
 
         <Section title="9. International Data Transfers">
